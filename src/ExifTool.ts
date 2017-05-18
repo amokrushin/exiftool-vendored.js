@@ -47,7 +47,7 @@ export class ExifTool {
    */
   constructor(
     readonly maxProcs: number = 1,
-    readonly maxTasksPerProcess: number = 100,
+    readonly maxTasksPerProcess: number = 500, // ExifTool seems to be stable for at least 500 calls on windows
     readonly spawnTimeoutMillis: number = 20000, // it shouldn't take longer than 5 seconds to spin up. 4x that should be quite conservative.
     readonly taskTimeoutMillis: number = 5000, // tasks should complete in under 250 ms. 20x that should handle swapped procs.
     readonly onIdleIntervalMillis: number = 2000,
